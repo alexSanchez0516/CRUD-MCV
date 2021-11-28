@@ -1,0 +1,101 @@
+@import '../../base/globales';
+@import '../../base/mixins';
+@import '../../base/utilidades';
+@import '../../base/variables';
+
+//Fix title-contact darkmode
+.titleContact {
+    color: $white !important;
+}
+
+//Fix pol darkmode
+.changeColourPol {
+    color: $white !important;
+}
+
+//Fix placeholder forContact DarkMode
+.formContactFix {
+
+
+    * {
+        &:placeholder-shown {
+            color:$white !important;
+        }
+    }
+
+    
+}
+
+
+.wrap-contact {
+    font-family: Poppins;
+
+    .wrap-for {
+        display: flex;
+        flex-flow: column wrap;
+        align-self: center;
+
+        width: 100%;
+        @include tablet {
+            width: 75%;
+        }
+        @include tablet {
+            padding: 2rem;
+        }
+
+
+
+        .title-contact {
+            font-weight: bolder;
+            letter-spacing: 3px;
+            color: black;
+        }
+
+    
+        .form-contact {
+
+            input[type="submit"] {
+                border: 1px solid #ccc;
+                border-radius:1em;
+                padding:.5rem;
+            }
+
+            #change-color {
+                &:hover {
+                    background-color: $blueFooter;
+                }
+            }
+
+            
+    
+            * {
+                @include tablet {
+                    width: 50% !important;
+                }        
+                width: 75% !important;
+                font-family: Poppins;
+                background: transparent;
+                border: none;
+                border-bottom: 2.5px solid $borderInput;
+                margin: .7rem 0 1rem 0;
+
+                &:placeholder-shown {
+                    color: $black;
+                }
+            }
+
+            .pol {
+                text-align: justify;
+                border: none ;
+            }
+            
+        } 
+    }
+
+}
+
+#polict {
+    width: 4% !important;
+    margin: 1rem;
+}
+
