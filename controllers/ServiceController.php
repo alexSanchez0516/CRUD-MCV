@@ -2,12 +2,15 @@
 
 namespace Controllers;
 use MVC\Router;
+use Model\Services;
 
 class ServiceController {
     public static function index(Router $router) {
+
+        $services = Services::all();
+
         $router->render('properties/admin', [
-            'msg' => 'Desde El controlador',
-            'text' => [1,32,43,43]
+            'services' => $services
         ]);
     }
 
