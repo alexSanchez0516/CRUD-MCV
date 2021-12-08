@@ -85,7 +85,6 @@ class ActiveRecord
         static::$db->query($query) ?: header('Location: /error.html');
 
 
-        //token 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
 
         $query = "UPDATE service SET name = '${services}' WHERE serviceID = ";
         $query .= static::$db->escape_string($this->id);
@@ -145,20 +144,17 @@ class ActiveRecord
 
     public function uploadImg($image, $imgDelete)
     {
-        $nameImage = (int) md5(uniqid(rand(), true)); //quita casting
+        $nameImage =  md5(uniqid(rand(), true)); 
         $extension = pathinfo($image['name'], PATHINFO_EXTENSION);
         $completeImg = $nameImage . "." . $extension;
         if (isset($imgDelete)) {
             file_exists(FOLDER_IMG . $imgDelete) ? unlink(FOLDER_IMG . $imgDelete) : false;
         }
-
+        
         $image = Image::make($image['tmp_name'])->fit(800, 600); //name and 
         $this->setImage($completeImg);
 
-        if (!is_dir(FOLDER_IMG)) {
-            mkdir(FOLDER_IMG);
-        }
-
+    
         $image->save(FOLDER_IMG . $completeImg);
     }
 
@@ -240,6 +236,7 @@ class ActiveRecord
             $services[] = static::createObject($record);
         }
         $data->free(); //Liberar memoria
+
 
         return $services; //return mapp array to getect
     }

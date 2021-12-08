@@ -1,5 +1,9 @@
 <?php
-//debug($services);
+
+if (isset($_GET['state'])) {
+    $state = filter_var($_GET['state'], FILTER_VALIDATE_INT) ?? null; //inset si no existe es valor null
+}
+
 ?>
 
 <main class="wrap">
@@ -19,7 +23,7 @@
     <?php endif; ?>
 
     <h1 class="text-admin text-center text-primary m-4">Administrador de Servicios</h1>
-    <a href="/admin/properties/create.php" id="addService" class=" btn btn-outline-info">CREATE SERVICE</a>
+    <a href="/admin/create" id="addService" class=" btn btn-outline-info">CREATE SERVICE</a>
     <table class="table  table-responsive table-hover table-dark  admin-table ">
         <thead>
             <tr>
@@ -44,11 +48,11 @@
                     <td><?php echo $service->description; ?></td>
                     <td><?php echo $service->price; ?>€</td>
 
-                    <td> <img src="/admin/img/<?php echo $service->imageProduct; ?>" class="img-fluid" style="height:45px;"></td>
+                    <td> <img src="../../img/<?php echo $service->imageProduct; ?>" class="img-fluid" style="height:45px;"></td>
 
-
-                    <td class="bg-danger btn-table"><a href="/admin/?deleteID=<?php echo $service->id; ?>">DELETE</a></td>
-                    <td class="bg-danger btn-table"><a href="/admin/properties/update.php?updateID=<?php echo $service->id; ?>">UPDATE</a></td>
+     
+                    <td class="bg-danger btn-table"><a href="/admin/delete?deleteID=<?php echo $service->id; ?>">DELETE</a></td>
+                    <td class="bg-danger btn-table"><a href="/admin/update?updateID=<?php echo $service->id; ?>">UPDATE</a></td>
 
                 </tr>
             <?php endforeach;  ?>

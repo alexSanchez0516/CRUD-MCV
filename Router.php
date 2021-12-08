@@ -2,47 +2,48 @@
 
 namespace MVC;
 
-Class Router {
+class Router
+{
+    public array $getRoutes = [];
+    public array $postRoutes = [];
 
-
-    public $routesPOST = [];
-    public $routesGET = [];
-    
     public function get($url, $fn) {
-        $this->routesGET[$url] = $fn;
-
+        $this->getRoutes[$url] = $fn;
     }
 
-    public function checkRoutes() {
-        $uri = $_SERVER['REQUEST_URI'];
+    public function post($url, $fn) {
+        $this->postRoutes[$url] = $fn;
+    }
+
+    public function checkRutes() {
+        $currentUrl = $_SERVER['PATH_INFO'] ?? '/';
         $method = $_SERVER['REQUEST_METHOD'];
-        
-        if ($method == 'GET') {
-            $fn = $this->routesGET[$uri] ?? NULL;
-        }
 
-        if ($fn) {
-            //Si la URL existe
-            call_user_func($fn, $this);
-
+        if ($method === 'GET') {
+            $fn = $this->getRoutes[$currentUrl] ?? null;
         } else {
-            header('Location: 404.php');
+            $fn = $this->postRoutes[$currentUrl] ?? null;
         }
-         
 
+        if ( $fn ) {
+            // Call user fn va a llamar una función cuando no sabemos cual sera
+            call_user_func($fn, $this); // This es para pasar argumentos
+        } else {
+            echo "Página No Encontrada o Ruta no válida";
+        }
     }
 
-    public function render($view, $data = []) { 
-
-        foreach ($data as $key => $value) {
-            $$key = $value; //Variable de variable
+    public function render($view, $datos = []) {
+        // Leer lo que le pasamos  a la vista
+        foreach ($datos as $key => $value) {
+            $$key = $value;  // Doble signo de dolar significa: variable variable, básicamente nuestra variable sigue siendo la original, pero al asignarla a otra no la reescribe, mantiene su valor, de esta forma el nombre de la variable se asigna dinamicamente
         }
 
-        ob_start(); //Almacenamiento en memoria momentaneo
-        include __DIR__ . '/views/' . $view .'.php';
+        ob_start(); // Almacenamiento en memoria durante un momento...
 
-        $content = ob_get_clean(); //Limpiamos el buffer
-
-        include __DIR__ . '/views/layout.php';
+        // entonces incluimos la vista en el layout
+        include_once __DIR__ . "/views/$view.php";
+        $content = ob_get_clean(); // Limpia el Buffer
+        include_once __DIR__ . '/views/layout.php';
     }
 }
