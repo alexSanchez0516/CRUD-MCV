@@ -1,25 +1,10 @@
-<?php 
-/*
-
-    require '/includes/app.php';
-
-
-    $db = connectDB();
-    use Model\Services;
-
-
-    $data = Services::consulSQL("SELECT services.id, name, imageProduct, description, service.nameService FROM services LEFT JOIN service ON services.id = service.serviceID; ");
-    $listServies = [];
-*/
-
-?>
 
 <main class="wrap">
 
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="build/img/xbanner-services-2.webp" alt="Second slide">
+                <img class="d-block w-100" src="build/img/xbanner.webp" alt="Second slide">
             </div>
             <div class="carousel-item">
                 <img class="d-block w-100" src="build/img/xbanner-services-3.webp" alt="Third slide">
@@ -35,14 +20,14 @@
             <?php foreach ($data as $date) : ?>
 
                 <div class="service-box m-4">
-                    <a class="m-2" href="service.php?id=<?php echo $date->id ?>"><img src="admin/img/<?php echo $date->imageProduct ?>" class="img-products" alt="Plan Desarrollo web"></a>
+                    <a class="m-2" href="service.php?id=<?php echo $date->id ?>"><img src="img/<?php echo $date->imageProduct ?>" class="img-products" alt="Plan Desarrollo web"></a>
                     <a href="service.php?id=<?php echo $date->id ?>" class="m-2 title-services-box text-success"> <?php echo $date->name ?> </a>
 
                     <?php
-                    $listServies = explode(",", $date->nameService);
+                    $listServices = explode(",", $date->nameService);
                     ?>
 
-                    <?php foreach ($listServies as $service) : ?>
+                    <?php foreach ($listServices as $service) : ?>
                         <p class="mt-2 ml-4"> <?php echo $service ?> </p>
                     <?php endforeach; ?>
                 </div>

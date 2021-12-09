@@ -7,10 +7,7 @@ use Model\Services;
 
 class ServiceController
 {
-    public static function index(Router $router)
-    {
-        $router->render('index', []);
-    }
+
 
     public static function admin(Router $router)
     {
@@ -28,20 +25,6 @@ class ServiceController
         ]);
     }
 
-    public static function contact(Router $router)
-    {
-        $router->render('services/contact', []);
-    }
-
-    public static function about(Router $router)
-    {
-        $router->render('services/about', []);
-    }
-
-    public static function services(Router $router)
-    {
-        $router->render('services/services', []);
-    }
 
     public static function login(Router $router)
     {
@@ -123,4 +106,6 @@ class ServiceController
         $ServiceInstance = Services::find($idDelete, null);
         $ServiceInstance->delete();
     }
+
+
 }

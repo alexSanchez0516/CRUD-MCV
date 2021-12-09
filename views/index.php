@@ -3,12 +3,12 @@
         <h1 class="title-banner text-white">Servicios de diseño y desarrollo de sitios web.</h1>
         <span class="subtitle-banner">¿Eres autónomo o empresa?</span>
         <span class="subtitle-banner">"Somos la solución perfecta para digitalizar tu negocio"</span>
-        <span class="subtitle-banner">Llámanos 634749073</span>
+        <span class="subtitle-banner ">Llámanos <a class="subtitle-banner text-decoration-underline" href="https://api.whatsapp.com/send?phone=0034634749073">634749073</a></span>
 
 
         <div class="content-btn-banner">
-            <button type="button" class="btn btn-primary">¿Tiene un proyecto? &raquo;</button>
-            <button type="button" class="btn btn-primary">Presupuesto &raquo;</button>
+            <button type="button" class="btn btn-primary"><a class="subtitle-banner" href="https://api.whatsapp.com/send?phone=0034634749073">¿Tiene un proyecto? &raquo;</a></button>
+            <button type="button" class="btn btn-primary"><a class="subtitle-banner" href="https://api.whatsapp.com/send?phone=0034634749073">Presupuesto &raquo;</a></button>
         </div>
 
     </section>

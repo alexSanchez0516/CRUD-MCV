@@ -97,9 +97,9 @@ $auth = $_SESSION['login'] ?? false; //si no existe es igual a null
                     Avisos Legales
                 </span>
                 <ul class="list-page-legal-sub-footer d-flex flex-column">
-                    <li><a href="../../legal/privacidad.php">Política de Privacidad</a></li>
-                    <li><a href="../../legal/cookies.php">Política de Cookies</a></li>
-                    <li><a href="../../legal/legal.php">Aviso Legal</a></li>
+                    <li><a href="/privacidad">Política de Privacidad</a></li>
+                    <li><a href="/cookies">Política de Cookies</a></li>
+                    <li><a href="/legal">Aviso Legal</a></li>
                 </ul>
 
 
