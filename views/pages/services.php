@@ -4,10 +4,10 @@
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="build/img/xbanner.webp" alt="Second slide">
+                <img class="d-block w-100" src="build/img/xbanner-services_small.webp" alt="Second slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="build/img/xbanner-services-3.webp" alt="Third slide">
+                <img class="d-block w-100" src="build/img/xbanner-services-3.webp" alt="Third slide" loading="eager">
             </div>
         </div>
     </div>
@@ -20,8 +20,8 @@
             <?php foreach ($data as $date) : ?>
 
                 <div class="service-box m-4">
-                    <a class="m-2" href="service.php?id=<?php echo $date->id ?>"><img src="img/<?php echo $date->imageProduct ?>" class="img-products" alt="Plan Desarrollo web"></a>
-                    <a href="service.php?id=<?php echo $date->id ?>" class="m-2 title-services-box text-success"> <?php echo $date->name ?> </a>
+                    <a class="m-2" href="servicio?id=<?php echo $date->id ?>"><img src="img/<?php echo $date->imageProduct ?>" class="img-products" alt="Plan Desarrollo web"></a>
+                    <a href="servicio?id=<?php echo $date->id ?>" class="m-2 title-services-box text-success"> <?php echo $date->name ?> </a>
 
                     <?php
                     $listServices = explode(",", $date->nameService);

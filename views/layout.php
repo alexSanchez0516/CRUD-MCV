@@ -6,7 +6,9 @@ if (!isset($_SESSION)) {
 }
 
 $auth = $_SESSION['login'] ?? false; //si no existe es igual a null
+use Model\Services;
 
+$data = Services::getAny("name,id", "services");
 ?>
 
 <!DOCTYPE html>
@@ -80,14 +82,9 @@ $auth = $_SESSION['login'] ?? false; //si no existe es igual a null
                     servicios
                 </span>
                 <ul class="list-services-sub-footer d-flex flex-column">
-                    <li><a href="../../service.php?id=47">Desarrollo web</a></li>
-                    <li><a href="../../service.php?id=4">Diseño de logos</a></li>
-                    <li><a href="../../service.php?id=6">Desarrollo de API</a></li>
-                    <li><a href="../../service.php?id=7">Automatización de tareas</a></li>
-                    <li><a href="../../service.php?id=13">Administrador de servidores</a></li>
-                    <li><a href="../../service.php?id=10">Soporte del sitio web</a></li>
-                    <li><a href="../../service.php?id=11">SEO</a></li>
-
+                    <?php foreach ($data as $serviceInfo): ?>
+                        <li><a href="/servicio?id=<?php echo $serviceInfo[1] ?>"><?php echo $serviceInfo[0] ?></a></li>
+                    <?php endforeach; ?>
                 </ul>
 
             </div>

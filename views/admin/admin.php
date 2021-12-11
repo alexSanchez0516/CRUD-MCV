@@ -8,15 +8,15 @@ if (isset($_GET['state'])) {
 
 <main class="wrap">
 
-    <?php if (filter_var(intval($state), FILTER_VALIDATE_INT) === 1) : ?>
+    <?php if ($state === 1) : ?>
         <p class="text-success state text-center h4 m-2">
             Servicio creado correctamente
         </p>
-    <?php elseif (filter_var(intval($state), FILTER_VALIDATE_INT)=== 2) : ?>
+    <?php elseif ($state=== 2) : ?>
         <p class="text-success state text-center h4 m-2">
             Servicio actualizado correctamente
         </p>
-    <?php elseif (filter_var(intval($state), FILTER_VALIDATE_INT) === 3) : ?>
+    <?php elseif ($state === 3) : ?>
         <p class="text-success state text-center h4 m-2">
             Servicio eliminado correctamente
         </p>
@@ -51,8 +51,8 @@ if (isset($_GET['state'])) {
                     <td> <img src="../../img/<?php echo $service->imageProduct; ?>" class="img-fluid" style="height:45px;"></td>
 
      
-                    <td class="bg-danger btn-table"><a href="/admin/delete?deleteID=<?php echo $service->id; ?>">DELETE</a></td>
-                    <td class="bg-danger btn-table"><a href="/admin/update?updateID=<?php echo $service->id; ?>">UPDATE</a></td>
+                    <td class="bg-danger btn-table"><a href="/admin/delete?id=<?php echo $service->id; ?>">DELETE</a></td>
+                    <td class="bg-danger btn-table"><a href="/admin/update?id=<?php echo $service->id; ?>">UPDATE</a></td>
 
                 </tr>
             <?php endforeach;  ?>

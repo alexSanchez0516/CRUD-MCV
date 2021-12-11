@@ -15,22 +15,19 @@ class PageController
 
     public static function contact(Router $router)
     {
-        $router->render('services/contact', []);
+        $router->render('pages/contact', []);
     }
 
     public static function about(Router $router)
     {
-        $router->render('services/about', []);
+        $router->render('pages/about', []);
     }
 
     public static function services(Router $router)
     {
-        $data = Services::consulSQL("SELECT services.id, name, imageProduct, description, service.nameService FROM services LEFT JOIN service ON services.id = service.serviceID; ");
-        $listServices = [];
-
-        $router->render('services/services', [
-            'data' => $data,
-            'listServices' => $listServices
+        $data = Services::getServicesList(null);
+        $router->render('pages/services', [
+            'data' => $data[0]
         ]);
     }
     public static function cookies(Router $router)
@@ -49,6 +46,12 @@ class PageController
     }
 
     public static function service(Router $router) {
-        $router->render('services/service', []);
+        $id = validateOrRedirect("/");
+        $data = Services::getServicesList($id);
+
+        $router->render('pages/service', [
+            'service' => $data[0],
+            'listServices' => $data[1]
+        ]);
     }
 }

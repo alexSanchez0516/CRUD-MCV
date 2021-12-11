@@ -22,64 +22,11 @@
                 <h2 class="title-package  w-100">Desarrollo de sitios web y SEO</h2>
                 <p class="description.package text-justify">Te ofrecemos diferentes tipos de sitios web, en función de tus necesidades y enfocadas a tu sector, desde una web corporativa perfecta para darte a conocer y mostrar tus servicios, un proyecto más avanzado y profesional en el que poder compartir contenido y publicaciones a cerca de tus productos, o una página web a medida con todo lo que necesitas para llevar a cabo tu negocio.
                     Nos adaptamos a tus necesidades y al sector al que pertenezcas para crear el diseño web que mejor se adapte a tu negocio. Las posibilidades pueden variar desde una One Page Website, pasando por una web corporativa, hasta el diseño de una tienda online.</p>
-
-                <div class="pack">
-                    <div class="content-service">
-                        <h3 class="title-pack">Desarrollo Web</h3>
-                        <i class="fas fa-caret-down"></i>
-                    </div>
-                    <div class="desc">
-                        <span class="text-special">Consigue una cotización &raquo;</span>
-                        <span class="price-cot">Desde €500</span>
-                    </div>
-                </div>
-
-
-
-
-                <div class="pack">
-                    <div class="content-service">
-                        <h3 class="title-pack">Soporte del sitio web</h3>
-                        <i class="fas fa-caret-down"></i>
-                    </div>
-                    <div class="desc">
-                        <span class="text-special">Consigue una cotización &raquo;</span>
-                        <span class="price-cot">Desde €100</span>
-                    </div>
-                </div>
-
-
-                <div class="pack">
-                    <div class="content-service">
-                        <h3 class="title-pack">SEO básico</h3>
-                        <i class="fas fa-caret-down"></i>
-                    </div>
-                    <div class="desc">
-                        <span class="text-special">Consigue una cotización &raquo;</span>
-                        <span class="price-cot">Desde €100</span>
-                    </div>
-                </div>
-
-
-                <div class="pack">
-                    <div class="content-service">
-                        <h3 class="title-pack">Desarrollo de API</h3>
-                        <i class="fas fa-caret-down"></i>
-                    </div>
-                    <div class="desc">
-                        <span class="text-special">Consigue una cotización &raquo;</span>
-                        <span class="price-cot">Desde €500</span>
-                    </div>
-                </div>
             </div>
-
-
-
-
             <div class="package" id="fix-responsive-package">
                 <img src="build/img/web-icon-code-2-1.webp" class="img-packs" id="photo_fix_package" loading="lazy">
 
-                <h2 class="title-package ">Diseño de sitios web y estrategia de marca</h2>
+                <h2 class="title-package ">Estrategia de marca</h2>
                 <p class="description.package text-justify">
                     Diseñamos tu identidad corporativa, la publicidad de tu negocio y el aspecto de tu web o de tus redes sociales.
 
@@ -95,67 +42,22 @@
                     Rediseño de marca.
                     Packaging y papelería.
                     Flyers y tripticos.
-                    Banners para sitios web.
-
-                    <br>
-                    Adaptamos tu imagen corporativa a todo tu entorno digital.
-
-
-
-
+                    Banners para sitios web. Adaptamos tu imagen corporativa a todo tu entorno digital.
                 </p>
-
-                <div class="pack" id="fix-pack">
-                    <div class="content-service">
-                        <h3 class="title-pack">Diseño de logo</h3>
-                        <i class="fas fa-caret-down"></i>
-                    </div>
-                    <div class="desc">
-                        <span class="text-special">Consigue una cotización &raquo;</span>
-                        <span class="price-cot">Desde €50</span>
-                    </div>
-                </div>
-
-                <div class="pack">
-                    <div class="content-service">
-                        <h3 class="title-pack">Diseño de Landing Page</h3>
-                        <i class="fas fa-caret-down"></i>
-                    </div>
-                    <div class="desc">
-                        <span class="text-special">Consigue una cotización &raquo;</span>
-                        <span class="price-cot">Desde €100</span>
-                    </div>
-                </div>
-
-
-
-
-
-                <div class="pack">
-                    <div class="content-service">
-                        <h3 class="title-pack">Automatización de tareas</h3>
-                        <i class="fas fa-caret-down"></i>
-                    </div>
-                    <div class="desc">
-                        <span class="text-special">Consigue una cotización &raquo;</span>
-                        <span class="price-cot">Desde €100</span>
-                    </div>
-                </div>
-
-                <div class="pack">
-                    <div class="content-service">
-                        <h3 class="title-pack">Admistrador de Servidores</h3>
-                        <i class="fas fa-caret-down"></i>
-                    </div>
-                    <div class="desc">
-                        <span class="text-special">Consigue una cotización &raquo;</span>
-                        <span class="price-cot">Desde €100</span>
-                    </div>
-                </div>
-
-
             </div>
         </div>
+
+        <div class="pack">
+            <div class="content-service">
+                <h3 class="title-pack">Desarrollo Web</h3>
+                <i class="fas fa-caret-down"></i>
+            </div>
+            <div class="desc">
+                <span class="text-special">Consigue una cotización &raquo;</span>
+                <span class="price-cot">Desde €500</span>
+            </div>
+        </div>
+
     </section>
 
 

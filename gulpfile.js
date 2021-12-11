@@ -83,5 +83,6 @@
  //nombre tarea, nombre funcion
  exports.css = compilarSASS ;
  exports.compressed_img = imagenes;
+ exports.webp = versionWebp;
  exports.watchData = watchData;
  exports.default = series( compilarSASS, javascript ,imagenes, versionWebp, watchData)

@@ -36,12 +36,12 @@ function s($html) : string {
 function validateOrRedirect(String $url) {
     $id = null;
 
-    if ($_GET['updateID']) {
-        $id = filter_var($_GET['updateID'], FILTER_VALIDATE_INT);
+    if ($_GET['id']) {
+        $id = filter_var($_GET['id'], FILTER_VALIDATE_INT);
     }
-    if (isset($_GET["deleteID"])) {
-        $id = filter_var(intval($_GET['deleteID']), FILTER_VALIDATE_INT);
-    }
+
+
+  
 
     if (!$id) {
         header("Location: ${url}");

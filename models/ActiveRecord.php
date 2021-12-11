@@ -212,7 +212,6 @@ class ActiveRecord
 
     public static function find($id, $username)
     {   
-        //debug($username);
         if (isset($username)) {
             $query = "SELECT * FROM " . static::$tabla  ." WHERE username = '${username}'";
 
@@ -222,21 +221,43 @@ class ActiveRecord
 
         $query = "SELECT * FROM " . static::$tabla  ." WHERE id = ${id}";
         $data = static::consulSQL($query);
+        
 
         return array_shift($data); //Devuelve primer elemento de arreglo
     }
 
+    public static function getServicesList($id) {
+
+        $service = null;
+        $listServices = [];
+
+
+        if ($id) {
+            $query = "SELECT * FROM";
+            $query .= " services LEFT JOIN service ON service.serviceID = services.id WHERE services.id = $id ";
+            $service = Services::consulSQL($query);
+            $service = array_shift($service);
+            $listServices = explode(",", $service->nameService);
+        } else {
+            $service = Services::consulSQL("SELECT services.id, name, imageProduct, description, service.nameService FROM services LEFT JOIN service ON services.id = service.serviceID; ");
+            
+        }
+        
+
+        return [$service, $listServices];
+    }
+
+
     public static function consulSQL($query): array
     {
         $data = static::$db->query($query);
-
+      
         $services = [];
 
-        while ($record = $data->fetch_assoc()) {
+        while ($record = $data->fetch_array(MYSQLI_ASSOC)) {
             $services[] = static::createObject($record);
         }
         $data->free(); //Liberar memoria
-
 
         return $services; //return mapp array to getect
     }
@@ -254,5 +275,13 @@ class ActiveRecord
         }
         return $object; //return object
 
+    }
+
+    public static function getAny(String $col, String $table) {
+        $query = "SELECT ${col} FROM ${table}";
+
+        $data = static::$db->query($query)->fetch_all();
+        
+        return $data;
     }
 }
