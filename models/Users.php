@@ -1,8 +1,9 @@
-<?php 
+<?php
 
 namespace Model;
 
-class Users extends ActiveRecord{
+class Users extends ActiveRecord
+{
 
     protected static $db;
     protected static $colDB = ['id', 'username', 'password', 'email'];
@@ -14,7 +15,8 @@ class Users extends ActiveRecord{
 
 
 
-    function __construct($args = []) {
+    function __construct($args = [])
+    {
         $this->username = $args['username'] ?? '';
         $this->password = $args['password'] ?? '';
         $this->email = $args['email'] ?? '';
@@ -25,8 +27,9 @@ class Users extends ActiveRecord{
         self::$db = $database;
     }
 
-    public function login() : bool {
-        $data = $this->sanitizeData();
+    public function login()
+    {
+        $data = $this->sanitizeData(1);
 
 
         if (!$data['username'] || !$data['password']) {
@@ -34,8 +37,9 @@ class Users extends ActiveRecord{
         }
         if (empty(static::$errors)) {
             $user_data =  static::find(null, $data['username']);
-            
+
             if (isset($user_data)) {
+
                 $auth = password_verify($this->password, $user_data->password);
 
                 if ($auth) {
@@ -45,45 +49,39 @@ class Users extends ActiveRecord{
                     $_SESSION['login'] = true;
 
                     header('Location: /admin');
-
                 } else {
                     static::$errors[] = 'Credenciales erróneas';
                 }
-
             } else {
                 static::$errors[] = 'El usuario no existe';
             }
-            
-        } 
-
-        
-        return true;
+        }
     }
 
-    public function register() : bool {
-        return true;
-    }
-
-
-    public function logout() : bool {
-        return false;
-    }
-
-    public function changePassword(String $password) : bool {
-        return true;
-    }
-
-    public function authenticate() : bool {
-        return true;
-    }
-
-    public function deleteUser() : bool {
+    public function register(): bool
+    {
         return true;
     }
 
 
-    
+    public static function logout()
+    {
+        session_start();
 
+        $_SESSION = [];
+
+        header('Location: /login');
+    }
+
+    public function changePassword(String $password): bool
+    {
+        return true;
+    }
+
+
+
+    public function deleteUser(): bool
+    {
+        return true;
+    }
 }
-
-

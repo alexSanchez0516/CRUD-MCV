@@ -16,6 +16,13 @@ class Router
     }
 
     public function checkRutes() {
+
+        session_start();
+
+        $auth = $_SESSION['login'] ?? null;
+
+        $urlsProtected = ['/admin', '/admin/update', '/admin/create', '/admin/delete'];
+
         $currentUrl = $_SERVER['PATH_INFO'] ?? '/';
         $method = $_SERVER['REQUEST_METHOD'];
 
@@ -23,6 +30,10 @@ class Router
             $fn = $this->getRoutes[$currentUrl] ?? null;
         } else {
             $fn = $this->postRoutes[$currentUrl] ?? null;
+        }
+
+        if (in_array($currentUrl, $urlsProtected) && !$auth) {
+            header('Location: /');
         }
 
         if ( $fn ) {

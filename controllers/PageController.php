@@ -4,18 +4,47 @@ namespace Controllers;
 
 use MVC\Router;
 use Model\Services;
+use PHPMailer\PHPMailer\PHPMailer;
 
 
 class PageController
 {
     public static function index(Router $router)
     {
-        $router->render('index', []);
+        $message = null;
+        $services = Services::getServicesList(null);
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $responses = $_POST['contact'];
+            if (configMail($responses, 1)) {
+                $message = "Enviado correctamente";
+            } else {
+                $message = "No se ha podido enviar, intenta más tarde";
+            }
+        }
+
+
+
+        $router->render('index', [
+            'services' => $services[0],
+            'message' => $message
+        ]);
     }
 
     public static function contact(Router $router)
     {
-        $router->render('pages/contact', []);
+        $mensaje = null;
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+
+            $responses = $_POST['contact'];
+        
+            configMail($responses, 0);
+        }
+        
+        $router->render('pages/contact', [
+            'mensaje' => $mensaje
+        ]);       
     }
 
     public static function about(Router $router)

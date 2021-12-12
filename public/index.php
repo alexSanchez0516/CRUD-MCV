@@ -5,6 +5,7 @@ require_once __DIR__ . '../../includes/app.php';
 use MVC\Router;
 use Controllers\ServiceController;
 use Controllers\PageController;
+use Controllers\LoginController;
 
 
 $router = new Router();
@@ -33,7 +34,10 @@ $router->get('/admin/delete', [ServiceController::class, 'delete']);
 
 
 //AUTH
-$router->get('/login', [ServiceController::class, 'login']);
+$router->get('/login', [LoginController::class, 'auth']);
+$router->post('/login', [LoginController::class, 'auth']);
+$router->get('/logout', [LoginController::class, 'logout']);
+
 
 
 

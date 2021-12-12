@@ -91,6 +91,14 @@
     text-align: center;
 }
 
+.packs {
+    @include grid(1);
+    
+    @include phone {
+        @include grid(2);
+    }
+}
+
 .pack {
 
     display: flex;
@@ -99,6 +107,10 @@
     padding: .5rem;
     width: 100%;
     margin-bottom: 1rem;
+
+    @include tablet {
+        flex-basis: 20%;
+    }
 
     .content-service {
         display: flex;
@@ -119,6 +131,12 @@
 
         }   
     }
+
+    /*DISPLAY INFO SERVICES*/
+    .infoServices {
+        display: none;
+    }
+    /*END INFO*/
 }
 
 #fix-responsive-package {

@@ -35,6 +35,7 @@ class ServiceController
     {
         $serviceInstace = new Services();
         $errors = Services::getErrors();
+        $listServices = "";
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             ob_start();
@@ -49,6 +50,7 @@ class ServiceController
             if (empty($errors)) {
                 $serviceInstace->save();
             }
+            $listServices = $_POST['services'];
         }
 
 
@@ -56,6 +58,7 @@ class ServiceController
         $router->render('admin/create', [
             'serviceInstace' => $serviceInstace,
             'errors' => $errors,
+            'listServices' => $listServices
         ]);
     }
 
@@ -66,6 +69,10 @@ class ServiceController
     {
         $id = validateOrRedirect('/admin');
         $serviceInstace = Services::find($id, null);
+
+        $listServices = Services::getServicesList($id);
+        $listServices = implode(', ', $listServices[1]);
+
         $errors = Services::getErrors();
         $imgDelete = $serviceInstace->imageProduct;
 
@@ -96,7 +103,8 @@ class ServiceController
 
         $router->render('admin/update', [
             'serviceInstace' => $serviceInstace,
-            'errors' => $errors
+            'errors' => $errors,
+            'listServices' => $listServices
         ]);
     }
 

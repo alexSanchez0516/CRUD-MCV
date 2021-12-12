@@ -28,28 +28,28 @@ $data = Services::getAny("name,id", "services");
 </head>
 
 <body>
-    <header class="header_nav">
+    <header class="header_nav" data-cy='header_nav'>
         <a class="subtitle-what" href="https://api.whatsapp.com/send?phone=0034634749073"><i class="fab fa-whatsapp"></i></a>
-        <nav class="d-flex nav-brand">
+        <nav class="d-flex nav-brand" data-cy='nav-brand'>
             <a class="navbarbrand m-2 " href="#"><img src="../build/img/Divisione.png" class="logo"></a>
-            <div class="dark-mode">
+            <div class="dark-mode" data-cy='dark-mode'>
                 <i class="fas fa-moon m-2"></i>
             </div>
             <div class="mobile-menu">
                 <i id="burger" class="fas fa-bars"></i>
             </div>
-            <ul class="nav-content">
-                <a href="/">Inicio</a></li>
-                <a href="/servicios" class="d-flex mn">Servicios
+            <ul class="nav-content" data-cy='nav-content'>
+                <a href="/" class="cy">Inicio</a></li>
+                <a href="/servicios" class="d-flex mn cy">Servicios
                 </a>
 
-                <a href="/sobre-nosotros">Sobre Nosotros</a>
-                <a href="/contacto">Contacto</a>
+                <a href="/sobre-nosotros" class="cy">Sobre Nosotros</a>
+                <a href="/contacto" class="cy">Contacto</a>
 
                 <?php if ($auth) : ?>
-                    <a href="/admin">Panel Administración</a>
-                    <a href="/">Crear cuenta</a>
-                    <a href="/close_sesion.php">Cerrar sesión</a>
+                    <a href="/admin" class="cy">Panel Administración</a>
+                    <a href="/" class="cy">Crear cuenta</a>
+                    <a href="/logout" class="cy">Cerrar sesión</a>
                 <?php endif; ?>
 
 
@@ -62,7 +62,7 @@ $data = Services::getAny("name,id", "services");
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-
+                
     <?php echo $content; ?>
 
 

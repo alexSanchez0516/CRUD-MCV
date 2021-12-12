@@ -5,8 +5,28 @@ document.addEventListener('DOMContentLoaded', function() {
     formCreateAdmin()
     showDetail();
     messagesFlash();
+    validatePolicy();
 }); 
 
+
+function validatePolicy() {
+
+    const checkbox = document.querySelector('#polict');
+    const btn = document.querySelector('#change-color'); 
+
+    if (checkbox != null ) {
+        checkbox.addEventListener('change', evt => {
+            if (checkbox.checked) {
+                btn.classList.add('add');
+    
+            } else {
+                btn.classList.remove('add');
+            }
+        });
+    }
+
+    
+}
 
 function messagesFlash() {
     if (document.querySelector('.state')) {
@@ -21,22 +41,14 @@ function messagesFlash() {
 
 function showDetail() {
     const fa_caret_down = document.querySelectorAll('.fa-caret-down');
-    const packs = document.querySelectorAll('.pack');
 
-
-    //HACE FALTA UN JSON
 
     fa_caret_down.forEach(item => {
         item.addEventListener('click', evt => {
-            const parentItem = item.parentElement;
-      
-
-            const listServices = document.createElement('DIV');
-
-            listServices.innerHTML = "";
-
-            parentItem.appendChild(listServices);
-    
+            const parent = item.parentNode;
+            const parenDParent = parent.parentNode;
+            const elementContainer = parenDParent.lastElementChild;
+            elementContainer.classList.toggle('add');
         });
     });
 
@@ -63,7 +75,6 @@ function formCreateAdmin() {
                 
                 send.classList.toggle('no-send');
                 
-
 
                 const alert = document.createElement('DIV');
 

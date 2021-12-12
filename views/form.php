@@ -8,7 +8,7 @@
     <textarea minlength=3 class="validation" name="description" cols="30" rows="10" id="description_admin_create" placeholder="Description" required> <?php echo s( $serviceInstace->description ); ?></textarea>
 
     <label class="text-secondary" for="services">Add Services</label>
-    <textarea name="services" minlength=3 id="" class="validation" cols="30" rows="10" required><?php echo s( $serviceInstace->services ); ?></textarea>
+    <textarea name="services" minlength=3 id="" class="validation" cols="30" rows="10" required><?php echo s( $listServices ); ?></textarea>
 
     <label class="text-secondary" for="price">Price</label>
     <input type="number" minlength=1 class="validation" name="price"  id="price" required value="<?php echo s( $serviceInstace->price ); ?>" />

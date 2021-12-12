@@ -11,8 +11,8 @@ require __DIR__ . '/../vendor/autoload.php';
 $db = connectDB();
 
 use Model\ActiveRecord;
-//use App\Services;
-//use App\Users;
+use Model\Users;
 
 ActiveRecord::setDB($db);
-//Users::setDB($db);
+Users::setDB($db);
+

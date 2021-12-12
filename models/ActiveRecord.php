@@ -24,7 +24,7 @@ class ActiveRecord
     {
 
 
-        $atributes = $this->sanitizeData();
+        $atributes = $this->sanitizeData(0);
         $services = $atributes['services'];
         unset($atributes['services']);
 
@@ -65,7 +65,7 @@ class ActiveRecord
     public function update()
     {
 
-        $atributes = $this->sanitizeData();
+        $atributes = $this->sanitizeData(0);
         $services = $atributes['services'];
 
         unset($atributes['services']);
@@ -121,16 +121,23 @@ class ActiveRecord
     }
 
 
-    public function sanitizeData(): array
+    public function sanitizeData(int $opt): array
     {
         $atributes = $this->mapAtributes();
+        if ($opt == 1) {
+            unset($atributes['email']);
+        }
+ 
         $sanitize = [];
+        
 
         foreach ($atributes as $key => $value) {
             if (static::$tabla == 'users') {
                 $value = trim($value);
             }
+
             $sanitize[$key] = static::$db->escape_string($value);
+        
         }
         return $sanitize;
     }
@@ -221,7 +228,6 @@ class ActiveRecord
 
         $query = "SELECT * FROM " . static::$tabla  ." WHERE id = ${id}";
         $data = static::consulSQL($query);
-        
 
         return array_shift($data); //Devuelve primer elemento de arreglo
     }
@@ -239,7 +245,7 @@ class ActiveRecord
             $service = array_shift($service);
             $listServices = explode(",", $service->nameService);
         } else {
-            $service = Services::consulSQL("SELECT services.id, name, imageProduct, description, service.nameService FROM services LEFT JOIN service ON services.id = service.serviceID; ");
+            $service = Services::consulSQL("SELECT services.id, services.price, name, imageProduct, description, service.nameService FROM services LEFT JOIN service ON services.id = service.serviceID; ");
             
         }
         
@@ -261,6 +267,8 @@ class ActiveRecord
 
         return $services; //return mapp array to getect
     }
+
+  
 
     protected static function createObject($record)
     { //objeto en memoria espejo de la db

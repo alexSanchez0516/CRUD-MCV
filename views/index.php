@@ -1,6 +1,11 @@
 <main class="wrap">
+    <?php if (isset($message)) :?>
+        <div class="alert alert-success state col-auto text-center" role="alert">
+        <?php echo $message; ?>
+        </div>
+    <?php endif; ?>
     <section class="banner w-100">
-        <h1 class="title-banner text-white">Servicios de diseño y desarrollo de sitios web.</h1>
+        <h1 class="title-banner text-white" data-cy='heading-site'>Servicios de diseño y desarrollo de sitios web.</h1>
         <span class="subtitle-banner">¿Eres autónomo o empresa?</span>
         <span class="subtitle-banner">"Somos la solución perfecta para digitalizar tu negocio"</span>
         <span class="subtitle-banner ">Llámanos <a class="subtitle-banner text-decoration-underline" href="https://api.whatsapp.com/send?phone=0034634749073">634749073</a></span>
@@ -12,11 +17,11 @@
         </div>
 
     </section>
-    <section class="packages">
-        <h2 class="title-packages">Paquetes web y Servicios a la carta</h2>
+    <section class="packages" data-cy='packages'>
+        <h2 class="title-packages" data-cy='heading-subtitle'>Paquetes web y Servicios a la carta</h2>
 
 
-        <div class="content-pack">
+        <div class="content-pack" data-cy='content-pack'>
             <div class="package">
                 <img src="build/img/web-icon-design-2.webp" class="img-packs" loading="lazy">
                 <h2 class="title-package  w-100">Desarrollo de sitios web y SEO</h2>
@@ -46,47 +51,61 @@
                 </p>
             </div>
         </div>
+        <div class="packs" data-cy='packs'>
+            <?php foreach ($services as $service) : ?>
+                <div class="pack">
 
-        <div class="pack">
-            <div class="content-service">
-                <h3 class="title-pack">Desarrollo Web</h3>
-                <i class="fas fa-caret-down"></i>
-            </div>
-            <div class="desc">
-                <span class="text-special">Consigue una cotización &raquo;</span>
-                <span class="price-cot">Desde €500</span>
-            </div>
+                    <div class="content-service">
+                        <h3 class="title-pack"><?php echo $service->name ?></h3>
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+                    <div class="desc">
+                        <span class="text-special">Consigue una cotización &raquo;</span>
+                        <span class="price-cot">Desde €<?php echo $service->price ?></span>
+                    </div>
+                    <div class="infoServices">
+                        <?php
+                        $listServices = explode(",", $service->nameService);
+                        ?>
+                        <ul>
+                            <?php foreach ($listServices as $ServiceName) : ?>
+                                <li><?php echo $ServiceName ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                </div>
+            <?php endforeach; ?>
         </div>
 
-    </section>
 
+    </section>
 
     <section class="content-websites d-flex flex-column w-100">
         <span class="title-websites">Paquetes de sitios web completos</span>
         <img src="build/img/web-dev-26.webp" alt="services" loading="lazy" class="img-fluid">
         <div class="wrap-box">
-            <div class="box d-flex flex-column">
+            <div class="box d-flex flex-column" data-cy='box'>
                 <img src="build/img/web-icon-light-bulb.webp" alt="services" loading="lazy" class="img-box">
                 <span class="text-left text-secondary m-2 font-weight-bold">IDEA</span>
                 <p class="content-text-box">
                     Te asesoraremos en tu idea, te guiaremos en el tedioso camino de emprender
                 </p>
             </div>
-            <div class="box d-flex flex-column">
+            <div class="box d-flex flex-column" data-cy='box'>
                 <img src="build/img/web-icon-design.webp" alt="services" loading="lazy" class="img-box">
                 <span class="text-left text-secondary m-2 font-weight-bold">DISEÑO</span>
                 <p class="content-text-box">
                     Realizaremos un diseño totalmente adaptable a todo tipo de pantallas
                 </p>
             </div>
-            <div class="box d-flex flex-column">
+            <div class="box d-flex flex-column" data-cy='box'>
                 <img src="build/img/web-icon-adjust.webp" alt="services" loading="lazy" class="img-box">
                 <span class="text-left text-secondary m-2 font-weight-bold">REFINAR</span>
                 <p class="content-text-box">
                     Nos adaptaremos a tus necesidades, para Divisione tu eres parte del equipo.
                 </p>
             </div>
-            <div class="box d-flex flex-column">
+            <div class="box d-flex flex-column" data-cy='box'>
                 <img src="build/img/web-icon-code.webp" alt="services" loading="lazy" class="img-box">
                 <span class="text-left text-secondary m-2 font-weight-bold">CONSTRUIR</span>
                 <p class="content-text-box">
@@ -94,7 +113,7 @@
                 </p>
             </div>
         </div>
-        <button type="button" class="btn btn-outline-primary ">Proyectos &raquo;</button>
+        <button type="button" class="btn btn-outline-primary" data-cy='btn btn-outline-primary'>Proyectos &raquo;</button>
     </section>
 
     <section class="wrap-service-deluxe">
@@ -198,20 +217,19 @@
     </section>
     <section class="contact-foot">
         <h3 class="title-contact-foot title-deluxe text-center m-4 text-light">Obtenga un presupuesto gratuito</h3>
-        <form action="includes/php/contact.php" method="post" class="form-contact-foot d-flex flex-column">
+        <form action="/" method="POST" class="form-contact-foot d-flex flex-column">
             <div class="content-contact-foot">
-                <input type="text" name="name" id="name" placeholder="Nombre" required>
-                <input type="email" name="email" id="email" placeholder="Correo electrónico" required>
-                <input type="text" name="company" id="company" placeholder="Compañia" required>
-                <input type="text" name="url" id="url" placeholder="URL del sitio web" required>
+                <input type="text" name="contact[name]" id="name" placeholder="Nombre" required>
+                <input type="email" name="contact[email]" id="email" placeholder="Correo electrónico" required>
+                <input type="text" name="contact[company]" id="company" placeholder="Compañia" required>
+                <input type="text" name="contact[url]" id="url" placeholder="URL del sitio web" required>
             </div>
-            <input type="text" name="content" id="content" required placeholder="¿Qué contenido principal necesitas en tu sitio web?">
-            <input type="text" name="func" id="func" required placeholder="¿Qué funcionalidad imprescindible necesitas?">
-            <input type="text" name="state" id="state" required placeholder="¿Cuál es el estado actual de su sitio web?">
-            <input type="text" name="exp" id="exp" required placeholder="¿Cuál es su experiencia con la gestión de su propio sitio web?">
-            <textarea class="text-area-contact" name="details" id="details" cols="40" rows="6" required placeholder="Proporcione cualquier otro detalle o pregunta que tenga sobre su sitio web"></textarea>
-
+            <input type="text" name="contact[content]" id="content" required placeholder="¿Qué contenido principal necesitas en tu sitio web?">
+            <input type="text" name="contact[func]" id="func" required placeholder="¿Qué funcionalidad imprescindible necesitas?">
+            <input type="text" name="contact[state]" id="state" required placeholder="¿Cuál es el estado actual de su sitio web?">
+            <input type="text" name="contact[xp]" id="xp" required placeholder="¿Cuál es su experiencia con la gestión de su propio sitio web?">
+            <textarea class="text-area-contact" name="contact[msg]" id="details" cols="40" rows="6" required placeholder="Proporcione cualquier otro detalle o pregunta que tenga sobre su sitio web"></textarea>
+            <input type="submit" name="Enviar" value="Enviar"/>
         </form>
-        <button type="button" class="btn btn-outline-light w-25 m-4">Enviar</button>
     </section>
 </main>
