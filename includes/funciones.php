@@ -23,7 +23,7 @@ function isAuth(): void
 }
 
 
-function configMail($responses, int $type) : bool
+function configMail($responses, int $type): bool
 {
     $mail = new PHPMailer();
     $mail->isSMTP();
@@ -37,18 +37,20 @@ function configMail($responses, int $type) : bool
     $mail->setFrom('support@divisione.es', $responses['name']);
     $mail->addAddress('support@divisione.es', 'BienesRaices.com');
     $mail->Subject = 'Tienes un Nuevo Email';
-    
+
     $mail->isHTML(TRUE);
     $mail->CharSet = 'UTF-8';
 
-    
+
 
     $contenido = '<html>';
     $contenido .= "<p><strong>¡Tienes un futuro cliente!:</strong></p>";
     $contenido .= "<p>Nombre: " . $responses['name'] . "</p>";
     $contenido .= "<p>Email: " . $responses['email'] . "</p>";
-    
-    if ($type == 1 ) {
+
+    if ($type == 1) {
+        debug("Entre: 1");
+
         $contenido .= "<p>Compañia: " . $responses['company'] . "</p>";
         $contenido .= "<p>Compañia URL: " . $responses['url'] . "</p>";
         $contenido .= "<p>Contenido principal: " . $responses['content'] . "</p>";
@@ -57,12 +59,17 @@ function configMail($responses, int $type) : bool
         $contenido .= "<p>Experiencia: " . $responses['xp'] . "</p>";
     }
 
+    if ($type == 2) {
+        $contenido .= "<p>Compañia: " . $responses['company'] . "</p>";
+        $contenido .= "<p>Compañia URL: " . $responses['url'] . "</p>";
+        $contenido .= "<p>Contenido principal: " . $responses['content'] . "</p>";
+    }
+
     $contenido .= "<p>Mensage: " . $responses['msg'] . "</p>";
 
     $contenido .= '</html>';
     $mail->Body = $contenido;
     $mail->AltBody = 'Esto es texto alternativo';
-
 
 
     return $mail->send();

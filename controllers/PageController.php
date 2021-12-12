@@ -77,10 +77,23 @@ class PageController
     public static function service(Router $router) {
         $id = validateOrRedirect("/");
         $data = Services::getServicesList($id);
+        $message = null;
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $responses = $_POST['contact'];
+            if (configMail($responses, 2)) {
+                $message = "Enviado correctamente";
+            } else {
+                $message = "No se ha podido enviar, intenta más tarde";
+            }
+        }
+
+
 
         $router->render('pages/service', [
             'service' => $data[0],
-            'listServices' => $data[1]
+            'listServices' => $data[1],
+            'message' => $message
         ]);
     }
 }

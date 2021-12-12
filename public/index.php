@@ -21,6 +21,7 @@ $router->get('/cookies', [PageController::class, 'cookies']);
 $router->get('/legal', [PageController::class, 'legal']);
 $router->get('/privacidad', [PageController::class, 'privacy']);
 $router->get('/servicio', [PageController::class, 'service']);
+$router->post('/servicio', [PageController::class, 'service']);
 
 
 

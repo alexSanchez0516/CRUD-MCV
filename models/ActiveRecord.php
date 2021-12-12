@@ -86,7 +86,8 @@ class ActiveRecord
 
 
 
-        $query = "UPDATE service SET name = '${services}' WHERE serviceID = ";
+        $query = "UPDATE service SET nameService = '${services}' WHERE serviceID = ";
+
         $query .= static::$db->escape_string($this->id);
         $query .= " LIMIT 1";
         static::$db->query($query) ?: header('Location: /error.html');

@@ -24,7 +24,26 @@ $data = Services::getAny("name,id", "services");
     <link rel="icon" href="/build/img/Favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="../build/css/app.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Primary Meta Tags -->
     <title>Divisione</title>
+    <meta name="title" content="Divisione.es">
+    <meta name="description" content="Diseño corporativo en Cantabria, programacion y mantenimiento, diseño, Divisione.es Cantabria. Soluciones gráficas para su empresa o tienda online.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://metatags.io/">
+    <meta property="og:title" content="Divisione.es">
+    <meta property="og:description" content="Diseño corporativo en Cantabria, programacion y mantenimiento, diseño, Divisione.es Cantabria. Soluciones gráficas para su empresa o tienda online.">
+    <meta property="og:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://metatags.io/">
+    <meta property="twitter:title" content="Divisione.es">
+    <meta property="twitter:description" content="Diseño corporativo en Cantabria, programacion y mantenimiento, diseño, Divisione.es Cantabria. Soluciones gráficas para su empresa o tienda online.">
+    <meta property="twitter:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png">
+
+    <meta name="keywords" content="programacion, backend, frontend, Desarrollo web, desarrollo mobil, diseño de banners, diseño de logos, diseño web, scraping, mantenimiento web, APIs">
 </head>
 
 <body>
@@ -62,7 +81,7 @@ $data = Services::getAny("name,id", "services");
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-                
+
     <?php echo $content; ?>
 
 
@@ -82,7 +101,7 @@ $data = Services::getAny("name,id", "services");
                     servicios
                 </span>
                 <ul class="list-services-sub-footer d-flex flex-column">
-                    <?php foreach ($data as $serviceInfo): ?>
+                    <?php foreach ($data as $serviceInfo) : ?>
                         <li><a href="/servicio?id=<?php echo $serviceInfo[1] ?>"><?php echo $serviceInfo[0] ?></a></li>
                     <?php endforeach; ?>
                 </ul>

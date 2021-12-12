@@ -1,7 +1,7 @@
 <main class="wrap">
-    <?php if (isset($message)) :?>
+    <?php if (isset($message)) : ?>
         <div class="alert alert-success state col-auto text-center" role="alert">
-        <?php echo $message; ?>
+            <?php echo $message; ?>
         </div>
     <?php endif; ?>
     <section class="banner w-100">
@@ -229,7 +229,7 @@
             <input type="text" name="contact[state]" id="state" required placeholder="¿Cuál es el estado actual de su sitio web?">
             <input type="text" name="contact[xp]" id="xp" required placeholder="¿Cuál es su experiencia con la gestión de su propio sitio web?">
             <textarea class="text-area-contact" name="contact[msg]" id="details" cols="40" rows="6" required placeholder="Proporcione cualquier otro detalle o pregunta que tenga sobre su sitio web"></textarea>
-            <input type="submit" name="Enviar" value="Enviar"/>
+            <input type="submit" name="Enviar" value="Enviar" />
         </form>
     </section>
 </main>

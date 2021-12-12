@@ -8,7 +8,7 @@ class LoginController {
 
 
     public static function auth(Router $router) {
-        $errors = null;
+        $errors = [];
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $userLogin = new Users($_POST);
