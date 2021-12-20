@@ -58,7 +58,7 @@ $data = Services::getAny("name,id", "services");
     <header class="header_nav" data-cy='header_nav'>
         <a class="subtitle-what" href="https://api.whatsapp.com/send?phone=0034634749073"><i class="fab fa-whatsapp"></i></a>
         <nav class="d-flex nav-brand" data-cy='nav-brand'>
-            <a class="navbarbrand m-2 " href="#"><img src="../build/img/Divisione.png" class="logo"></a>
+            <a class="navbarbrand  " href="/inicio"><img src="../build/img/Divisione.png" class="logo"></a>
             <div class="dark-mode" data-cy='dark-mode'>
                 <i class="fas fa-moon m-2"></i>
             </div>
