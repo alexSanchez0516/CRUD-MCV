@@ -53,10 +53,12 @@
     
             }
             .content-box-sub-footer {
-                width: 45%;
-    
-    
-                color: $white;
+		width: 50%;  
+                @include tablet {
+	            width: 74%;
+		}
+
+	       	color: $white;
             }
     
             .list-page-legal-sub-footer {

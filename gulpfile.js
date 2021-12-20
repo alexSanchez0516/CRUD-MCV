@@ -4,7 +4,7 @@
  //src para identificar una fuente
  
  const sass = require('gulp-sass')(require('sass'));
- const imagemin = require('gulp-imagemin');
+// const imagemin = require('gulp-imagemin');
  const gulp = require('gulp');
  const webp = require('gulp-webp');
  const concat = require('gulp-concat');

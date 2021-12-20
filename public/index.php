@@ -11,8 +11,13 @@ use Controllers\LoginController;
 $router = new Router();
 
 //PAGES
-$router->get('/', [PageController::class, 'index']);
 $router->post('/', [PageController::class, 'index']);
+$router->get('/', [PageController::class, 'index']);
+
+$router->get('/inicio', [PageController::class, 'index']);
+$router->post('/inicio', [PageController::class, 'index']);
+
+
 $router->get('/contacto', [PageController::class, 'contact']);
 $router->post('/contacto', [PageController::class, 'contact']);
 $router->get('/sobre-nosotros', [PageController::class, 'about']);
@@ -38,7 +43,6 @@ $router->get('/admin/delete', [ServiceController::class, 'delete']);
 $router->get('/login', [LoginController::class, 'auth']);
 $router->post('/login', [LoginController::class, 'auth']);
 $router->get('/logout', [LoginController::class, 'logout']);
-
 
 
 

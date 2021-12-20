@@ -42,15 +42,19 @@
 
 
 .nav-content{
+    margin: 1.2rem 0 0rem 0;
+    padding: 1rem;
+    box-shadow: 3px 3px 3px #ccc;
     display: none;
-
+    background: #151515;
     @include tablet {
         display: flex;
         justify-content: space-around;
         place-items: center;
-        width: 70%;
+        width: 100%;
 
         * {
+	    color: white;
             list-style: none;
         }
     }

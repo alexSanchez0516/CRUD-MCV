@@ -49,7 +49,6 @@ function configMail($responses, int $type): bool
     $contenido .= "<p>Email: " . $responses['email'] . "</p>";
 
     if ($type == 1) {
-        debug("Entre: 1");
 
         $contenido .= "<p>Compañia: " . $responses['company'] . "</p>";
         $contenido .= "<p>Compañia URL: " . $responses['url'] . "</p>";

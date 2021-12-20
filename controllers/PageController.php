@@ -23,7 +23,6 @@ class PageController
         }
 
 
-
         $router->render('index', [
             'services' => $services[0],
             'message' => $message
@@ -41,7 +40,7 @@ class PageController
         
             configMail($responses, 0);
         }
-        
+
         $router->render('pages/contact', [
             'mensaje' => $mensaje
         ]);       

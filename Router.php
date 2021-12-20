@@ -23,10 +23,20 @@ class Router
 
         $urlsProtected = ['/admin', '/admin/update', '/admin/create', '/admin/delete'];
 
-        $currentUrl = $_SERVER['PATH_INFO'] ?? '/';
-        $method = $_SERVER['REQUEST_METHOD'];
+	$currentUrl = $_SERVER['REQUEST_URI'] ?? '/';
+        for ($i=0; $i < strlen($currentUrl); $i++) { 
+            # code...
+            if ($currentUrl[$i] === '?') {
+                $currentUrl = substr($currentUrl,0, $i);
+                break;
+            }
+        }
 
-        if ($method === 'GET') {
+
+	$method = $_SERVER['REQUEST_METHOD'];
+	
+	
+	if ($method === 'GET') {
             $fn = $this->getRoutes[$currentUrl] ?? null;
         } else {
             $fn = $this->postRoutes[$currentUrl] ?? null;
@@ -35,7 +45,6 @@ class Router
         if (in_array($currentUrl, $urlsProtected) && !$auth) {
             header('Location: /');
         }
-
         if ( $fn ) {
             // Call user fn va a llamar una función cuando no sabemos cual sera
             call_user_func($fn, $this); // This es para pasar argumentos
