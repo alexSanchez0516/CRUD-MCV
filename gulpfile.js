@@ -29,7 +29,7 @@
  }
  
  
- 
+ /*
  function imagenes () {
     const options = {
         optimizationLevel: 3
@@ -37,7 +37,7 @@
      return src(paths.imagenes)
          .pipe( imagemin(options) )
          .pipe( dest('./public/build/img') );
- }
+ }*/
  
  function versionWebp() {
     const options = {
@@ -79,10 +79,10 @@
  }
   
  
- //Saber si existe
+ //Saber si existedd
  //nombre tarea, nombre funcion
  exports.css = compilarSASS ;
- exports.compressed_img = imagenes;
- exports.webp = versionWebp;
+ //exports.compressed_img = imagenes;
+ //exports.webp = versionWebp;
  exports.watchData = watchData;
- exports.default = series( compilarSASS, javascript ,imagenes, versionWebp, watchData)
+ exports.default = series( compilarSASS, javascript, watchData)

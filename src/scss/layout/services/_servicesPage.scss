@@ -27,8 +27,33 @@
 
 .content-box {
     align-self: center;
-    width: 55% !important;
+    width: 90% !important;
 }
 .img-products {
     width: 50px;
+}
+
+.service-box {
+    background-color: $serviceBlue;
+    border-radius: 1em;
+    padding: .5rem;
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    box-shadow: 1px 1px 1px #ccc;
+    align-items: center;
+    @include tablet {
+        width: 40%;
+    }
+}
+
+.center-service {
+    * {
+        letter-spacing: 1px;
+    }
+}
+.title-services-box {
+    color: black;
+    font-size: 1.2rem;
+    font-weight: bolder;
 }

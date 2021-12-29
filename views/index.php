@@ -53,7 +53,7 @@
         </div>
         <div class="packs" data-cy='packs'>
             <?php foreach ($services as $service) : ?>
-                <div class="pack">
+                <div class="pack" onclick="window.location.href='/servicio?id=<?php echo $service->id ?>'">
 
                     <div class="content-service">
                         <h3 class="title-pack"><?php echo $service->name ?></h3>
@@ -136,7 +136,7 @@
         </div>
         <img src="build/img/web-dev-25.webp" alt="service deluxe" loading="lazy">
     </section>
-    <section class="wrap-website-design-package d-flex justify-content-center">
+    <section class="wrap-website-design-package d-flex justify-content-center m-2">
         <img src="build/img/web-dev-10.webp" loading="lazy" alt="Website Design Package" class="img-fluid w-100">
         <div class="content-deluxe d-flex flex-column m-4 w-100">
             <span class="title-deluxe">Desarrollo web</span>

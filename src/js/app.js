@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     showDetail();
     messagesFlash();
     validatePolicy();
+    
 }); 
 
 

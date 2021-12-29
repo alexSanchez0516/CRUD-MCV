@@ -1,4 +1,3 @@
-
 <main class="wrap">
 
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
@@ -19,17 +18,19 @@
 
             <?php foreach ($data as $date) : ?>
 
-                <div class="service-box m-4">
-                    <a class="m-2" href="servicio?id=<?php echo $date->id ?>"><img src="img/<?php echo $date->imageProduct ?>" class="img-products" alt="Plan Desarrollo web"></a>
-                    <a href="servicio?id=<?php echo $date->id ?>" class="m-2 title-services-box text-success"> <?php echo $date->name ?> </a>
+                <div class="service-box m-4" onclick="window.location.href='/servicio?id=<?php echo $date->id ?>'" >
+                    <div class="center-service">
+                        <a class="m-2" href="servicio?id=<?php echo $date->id ?>"><img src="img/<?php echo $date->imageProduct ?>" class="img-products" alt="Plan Desarrollo web"></a>
+                        <a href="servicio?id=<?php echo $date->id ?>" class="m-2 title-services-box"> <?php echo $date->name ?> </a>
 
-                    <?php
-                    $listServices = explode(",", $date->nameService);
-                    ?>
+                        <?php
+                        $listServices = explode(",", $date->nameService);
+                        ?>
 
-                    <?php foreach ($listServices as $service) : ?>
-                        <p class="mt-2 ml-4"> <?php echo $service ?> </p>
-                    <?php endforeach; ?>
+                        <?php foreach ($listServices as $service) : ?>
+                            <p class="mt-2 ml-4"> <?php echo $service ?> </p>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
             <?php endforeach; ?>
 

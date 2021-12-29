@@ -17,12 +17,15 @@
         width: 100%;
         align-self: center;
         padding: 1rem;
+        align-items: center;
     
         
         
         .box-sub-footer {
             flex:1;
-            align-items: center;
+            align-items: baseline;
+            margin-top:1rem;
+            margin-right: .5rem;
     
             &:nth-child(2n) {
                 span {
@@ -36,6 +39,7 @@
                 }
             }
             #fix-title-box-sub-foter {
+                align-self: center;
                 @include tablet {
                     margin-right: 6rem !important;
                 }
@@ -53,17 +57,17 @@
     
             }
             .content-box-sub-footer {
-		width: 50%;  
+                align-self: center;
+		        width: 80%;  
                 @include tablet {
-	            width: 74%;
-		}
+	            width: 40%;
+		        }
 
-	       	color: $white;
+	       	    color: $white;
             }
     
             .list-page-legal-sub-footer {
     
-                padding-right: 3rem;
     
                 li {
                     a {
@@ -91,4 +95,15 @@
         flex-flow: row wrap;
         }
     }
+}
+
+
+.content-footer-fix {
+    @include tablet {
+        
+        width: 40%;
+    }
+    display: flex;
+
+  
 }
