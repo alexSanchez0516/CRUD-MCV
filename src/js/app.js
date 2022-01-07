@@ -1,32 +1,77 @@
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     listEvent();
     darkMode();
     formCreateAdmin()
     showDetail();
     messagesFlash();
     validatePolicy();
-    
-}); 
+    navFixed();
+    destroyCookies();
 
+});
+
+function destroyCookies() {
+    const accept_cookies = document.querySelector('#btn-aceptar-cookies');
+    const cookies = document.querySelector('.cookies');
+
+    dataLayer = [];
+
+    if (!localStorage.getItem('cookies-aceptadas')) {
+        cookies.classList.add('activo');
+    } else {
+        dataLayer.push({ 'event': 'cookies-aceptadas' });
+        cookies.remove();
+    }
+
+
+    accept_cookies.addEventListener('click', () => {
+        cookies.remove();
+        localStorage.setItem('cookies-aceptadas', true);
+
+        dataLayer.push({'event': 'cookies-aceptadas'});
+    });
+}
+function navFixed() {
+    const top = document.querySelector('.header_nav');
+    const content_websites = document.querySelector('.content-websites');
+    const navbarbrand = document.querySelector('.navbarbrand');
+    const darkMode = document.querySelector('.dark-mode');
+
+    window.addEventListener('scroll', function () {
+        //funcion para cordenadas -->  console.log(packages.getBoundingClientRect())
+        if (content_websites.getBoundingClientRect().top < 0) { //Cuando la parte de arriba toque el inicio de ese div
+            top.classList.add('fixed');
+            navbarbrand.classList.add('d-none');
+            darkMode.classList.add('d-none');
+        } else {
+            top.classList.remove('fixed');
+            navbarbrand.classList.remove('d-none');
+            darkMode.classList.remove('d-none');
+        }
+    });
+
+
+
+}
 
 function validatePolicy() {
 
     const checkbox = document.querySelector('#polict');
-    const btn = document.querySelector('#change-color'); 
+    const btn = document.querySelector('#change-color');
 
-    if (checkbox != null ) {
+    if (checkbox != null) {
         checkbox.addEventListener('change', evt => {
             if (checkbox.checked) {
                 btn.classList.add('add');
-    
+
             } else {
                 btn.classList.remove('add');
             }
         });
     }
 
-    
+
 }
 
 function messagesFlash() {
@@ -36,7 +81,7 @@ function messagesFlash() {
             state.remove();
         }, 4000);
     }
-    
+
 }
 
 
@@ -63,33 +108,33 @@ function formCreateAdmin() {
     const listInputs = document.querySelectorAll(".validation");
     const send = document.querySelector("#send");
     const wrapFormAdmin = document.querySelector(".wrap-form-admin");
-    
+
 
     listInputs.forEach(item => {
         item.addEventListener('input', evt => {
 
             let item = evt.target.value.trim();
-            
 
-            if (item.length < 3 ) {
 
-                
+            if (item.length < 3) {
+
+
                 send.classList.toggle('no-send');
-                
+
 
                 const alert = document.createElement('DIV');
 
-                showAlert(1, "¡Minimo 3 carácteres y no puede ser solo espacios!", alert, wrapFormAdmin );
+                showAlert(1, "¡Minimo 3 carácteres y no puede ser solo espacios!", alert, wrapFormAdmin);
 
             }
-            
-        }) 
+
+        })
     })
 
     //console.log(listInputs);
 }
 
-function showAlert(type, message, child, parent){
+function showAlert(type, message, child, parent) {
     if (document.querySelector('.alert')) {
         return;
     }
@@ -99,7 +144,7 @@ function showAlert(type, message, child, parent){
 
     child.classList.toggle('alert');
 
-    parent.appendChild(child);    
+    parent.appendChild(child);
 
 
     setTimeout(() => {
@@ -121,7 +166,6 @@ function darkMode() {
     const titleContact = document.querySelector('.title-contact');
     const pol = document.querySelector('.pol');
     const formContact = document.querySelector('.form-contact');
-    
 
     bntDarkMode.addEventListener('click', () => {
         document.body.classList.toggle('dark-md');
@@ -141,7 +185,7 @@ function darkMode() {
             iconDev.forEach(item => {
                 item.classList.toggle('iconDevFix');
             });
-            
+
         }
         if (titleContact != null) {
             titleContact.classList.toggle("titleContact");
@@ -163,8 +207,8 @@ function darkMode() {
 function listEvent() {
     const burger = document.querySelector('#burger');
     const link = document.querySelector('.mn');
-    
-    burger.addEventListener('click', navBurger );
+
+    burger.addEventListener('click', navBurger);
     link.addEventListener('mouseover', showSubMenu);
 
 }
@@ -182,7 +226,7 @@ function showSubMenu() {
 
     //servicesList.classList.toggle('showMenu');
 
-   
+
 }
 
 

@@ -1,5 +1,14 @@
 @import 'variables';
 
+.d-none {
+    display: none !important;
+}
+
+.fixed {
+    position: fixed;
+    width: 100%;
+}
+
 .text-darkness {
     color: black !important;
     font-weight: bolder;

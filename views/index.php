@@ -53,7 +53,7 @@
         </div>
         <div class="packs" data-cy='packs'>
             <?php foreach ($services as $service) : ?>
-                <div class="pack" onclick="window.location.href='/servicio?id=<?php echo $service->id ?>'">
+                <div class="pack">
 
                     <div class="content-service">
                         <h3 class="title-pack"><?php echo $service->name ?></h3>
@@ -234,4 +234,11 @@
 	    <input type="submit" class="w-25" name="Enviar" value="Enviar" />
         </form>
     </section>
+    <div class="cookies m-4 w-25">
+        <img src="build/img/cookie.svg" alt="politicas de cookies" class="cookies-img w-25">
+        <h3 id="cookies__title">Cookies</h3>
+        <p id="cookies__text" class="text-center">Utilizamos cookies propias y de terceros para mejorar nuestros servicios.</p>
+        <button class="btn btn-primary" id="btn-aceptar-cookies">De acuerdo</button>
+		<a class="enlace" href="/cookies">Aviso de Cookies</a>
+    </div>
 </main>

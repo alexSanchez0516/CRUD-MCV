@@ -84,5 +84,6 @@
  exports.css = compilarSASS ;
  //exports.compressed_img = imagenes;
  //exports.webp = versionWebp;
+ exports.js = javascript;
  exports.watchData = watchData;
  exports.default = series( compilarSASS, javascript, watchData)

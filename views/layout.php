@@ -95,7 +95,7 @@ $data = Services::getAny("name,id", "services");
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EB7X3616Y"></script>
 
     <?php echo $content; ?>
-
+    
 
     <footer class="footer-content d-flex flex-column justify-content-center m-2 w-100">
         <div class="wrap-sub-footer ">
@@ -144,4 +144,5 @@ $data = Services::getAny("name,id", "services");
 
         <p class="text-dark p-4 text-center">Todos Los Derechos Reservados <?php echo date('Y') ?> &copy;</p>
     </footer>
+    
 </body>
