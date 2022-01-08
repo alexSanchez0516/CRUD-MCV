@@ -34,20 +34,24 @@ function destroyCookies() {
 }
 function navFixed() {
     const top = document.querySelector('.header_nav');
-    const content_websites = document.querySelector('.content-websites');
+    const packages = document.querySelector('.packages');
     const navbarbrand = document.querySelector('.navbarbrand');
     const darkMode = document.querySelector('.dark-mode');
-
+    const burger = document.querySelector('#burger');
+ 
     window.addEventListener('scroll', function () {
         //funcion para cordenadas -->  console.log(packages.getBoundingClientRect())
-        if (content_websites.getBoundingClientRect().top < 0) { //Cuando la parte de arriba toque el inicio de ese div
+        if (packages.getBoundingClientRect().top < 0) { //Cuando la parte de arriba toque el inicio de ese div
             top.classList.add('fixed');
             navbarbrand.classList.add('d-none');
             darkMode.classList.add('d-none');
+            burger.classList.add('fixedNavMobile');
         } else {
             top.classList.remove('fixed');
             navbarbrand.classList.remove('d-none');
             darkMode.classList.remove('d-none');
+            burger.classList.remove('fixedNavMobile');
+
         }
     });
 
@@ -131,7 +135,6 @@ function formCreateAdmin() {
         })
     })
 
-    //console.log(listInputs);
 }
 
 function showAlert(type, message, child, parent) {
@@ -166,6 +169,7 @@ function darkMode() {
     const titleContact = document.querySelector('.title-contact');
     const pol = document.querySelector('.pol');
     const formContact = document.querySelector('.form-contact');
+    const fa_moon = document.querySelector('.fa-moon');
 
     bntDarkMode.addEventListener('click', () => {
         document.body.classList.toggle('dark-md');
@@ -201,6 +205,7 @@ function darkMode() {
 
 
         footerChangeBanckground.classList.toggle('footerChangeBanckground');
+        fa_moon.classList.toggle('text-white');
     });
 }
 
@@ -214,9 +219,18 @@ function listEvent() {
 }
 
 function navBurger() {
+    const nav_brand = document.querySelector('.nav-brand');
     const navContent = document.querySelector('.nav-content');
-    navContent.classList.toggle('add-menu-mobile');
+    const mobile_li = document.querySelectorAll('.mobile-li');
+    const burger = document.querySelector('#burger');
 
+    navContent.classList.toggle('add-menu-mobile');
+    nav_brand.classList.toggle('bg-darkness');
+
+    burger.classList.toggle('text-white');
+    mobile_li.forEach(li => {
+        li.classList.toggle('text-white')
+    });
 
 }
 

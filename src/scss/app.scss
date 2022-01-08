@@ -25,7 +25,6 @@
     display: block !important;
 }
 
-
 .cookies {
     display: flex;
     flex-flow: column wrap;
@@ -36,6 +35,11 @@
     padding: .5rem;
     position: fixed;
     bottom: 0;
+    width: 70%;
+
+    @include tablet {
+        width: 25%;
+    }
 
     * {
         color: black !important;
@@ -43,7 +47,7 @@
 
     .cookies-img {
         position: relative;
-        bottom: 50px;
+        bottom: 40px;
     }
     #cookies__title {
         font-weight: bolder;
@@ -52,6 +56,10 @@
         bottom: 30px;
     }
     #cookies__text {
+        width: 80%;
+        @include tablet {
+            width: 100%;
+        }
         position: relative;
         bottom: 30px;
     }

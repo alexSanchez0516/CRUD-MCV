@@ -69,17 +69,17 @@ $data = Services::getAny("name,id", "services");
                 <i id="burger" class="fas fa-bars"></i>
             </div>
             <ul class="nav-content" data-cy='nav-content'>
-                <a href="/inicio" class="cy">Inicio</a></li>
-                <a href="/servicios" class="d-flex mn cy">Servicios
+                <a href="/inicio" class="cy mobile-li">Inicio</a></li>
+                <a href="/servicios" class="d-flex mn mobile-li cy">Servicios
                 </a>
 
-                <a href="/sobre-nosotros" class="cy">Sobre Nosotros</a>
-                <a href="/contacto" class="cy">Contacto</a>
+                <a href="/sobre-nosotros" class="cy mobile-li">Sobre Nosotros</a>
+                <a href="/contacto" class="cy mobile-li">Contacto</a>
 
                 <?php if ($auth) : ?>
-                    <a href="/admin" class="cy">Panel Administración</a>
-                    <a href="/" class="cy">Crear cuenta</a>
-                    <a href="/logout" class="cy">Cerrar sesión</a>
+                    <a href="/admin" class="cy mobile-li">Panel Administración</a>
+                    <a href="/" class="cy mobile-li">Crear cuenta</a>
+                    <a href="/logout" class="cy mobile-li">Cerrar sesión</a>
                 <?php endif; ?>
 
 
@@ -95,7 +95,7 @@ $data = Services::getAny("name,id", "services");
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EB7X3616Y"></script>
 
     <?php echo $content; ?>
-    
+
 
     <footer class="footer-content d-flex flex-column justify-content-center m-2 w-100">
         <div class="wrap-sub-footer ">
@@ -144,5 +144,5 @@ $data = Services::getAny("name,id", "services");
 
         <p class="text-dark p-4 text-center">Todos Los Derechos Reservados <?php echo date('Y') ?> &copy;</p>
     </footer>
-    
+
 </body>
