@@ -225,7 +225,7 @@ function navBurger() {
     const burger = document.querySelector('#burger');
 
     navContent.classList.toggle('add-menu-mobile');
-    nav_brand.classList.toggle('bg-darkness');
+    nav_brand.classList.toggle('bg-primary');
 
     burger.classList.toggle('text-white');
     mobile_li.forEach(li => {
