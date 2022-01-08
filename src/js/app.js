@@ -34,14 +34,14 @@ function destroyCookies() {
 }
 function navFixed() {
     const top = document.querySelector('.header_nav');
-    const packages = document.querySelector('.packages');
+    const wrap = document.querySelector('.wrap');
     const navbarbrand = document.querySelector('.navbarbrand');
     const darkMode = document.querySelector('.dark-mode');
     const burger = document.querySelector('#burger');
  
     window.addEventListener('scroll', function () {
         //funcion para cordenadas -->  console.log(packages.getBoundingClientRect())
-        if (packages.getBoundingClientRect().top < 0) { //Cuando la parte de arriba toque el inicio de ese div
+        if (wrap.getBoundingClientRect().top < 0) { //Cuando la parte de arriba toque el inicio de ese div
             top.classList.add('fixed');
             navbarbrand.classList.add('d-none');
             darkMode.classList.add('d-none');
