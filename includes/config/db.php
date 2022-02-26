@@ -3,7 +3,7 @@
 
 
 function connectDB() : mysqli{
-    $db = new mysqli('localhost', 'xymind', '1690001299Gr.', 'divisione_crud');
+    //$db = new mysqli('localhost', '', '', 'divisione_crud'); pass:169, user: xy....
     if (!$db) {
         echo "No hay conexion";
         exit;
